@@ -71,4 +71,3 @@ schema:
 clean:
 	cargo clean
 	rm -f ./contract.wasm ./contract.wasm.gz
-	$(MAKE) -C tests/example-receiver clean

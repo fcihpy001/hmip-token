@@ -9,7 +9,6 @@ use hermit_toolkit::permit::Permit;
 use crate::batch;
 use crate::transaction_history::{RichTx, Tx};
 use crate::viewing_key::ViewingKey;
-use std::io::Stderr;
 
 
 #[derive(Serialize,Deserialize,Clone, PartialEq, JsonSchema)]
