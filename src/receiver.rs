@@ -65,5 +65,5 @@ impl Hmip20ReceiveMsg {
 #[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema, Debug)]
 #[serde(rename_all = "snake_case")]
 enum ReceiverHandleMsg {
-    Receive(hmip20ReceiveMsg),
+    Receive(Hmip20ReceiveMsg),
 }
