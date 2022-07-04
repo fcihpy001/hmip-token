@@ -10,7 +10,7 @@ use crate::{contract::RESPONSE_BLOCK_SIZE, msg::space_pad};
 /// hmip20ReceiveMsg should be de/serialized under `Receive()` variant in a HandleMsg
 #[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema, Debug)]
 #[serde(rename_all = "snake_case")]
-pub struct hmip20ReceiveMsg {
+pub struct Hmip20ReceiveMsg {
     pub sender: HumanAddr,
     pub from: HumanAddr,
     pub amount: Uint128,
@@ -19,7 +19,7 @@ pub struct hmip20ReceiveMsg {
     pub msg: Option<Binary>,
 }
 
-impl hmip20ReceiveMsg {
+impl Hmip20ReceiveMsg {
     pub fn new(
         sender: HumanAddr,
         from: HumanAddr,
