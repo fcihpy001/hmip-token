@@ -13,7 +13,7 @@ use crate::msg::{
 };
 
 use crate::rand::sha_256;
-use crate::receiver::hmip20ReceiveMsg;
+use crate::receiver::Hmip20ReceiveMsg;
 use crate::state::{
     get_receiver_hash, read_allowance, read_viewing_key, set_receiver_hash, write_allowance,
     write_viewing_key, Balances, Config, Constants, ReadonlyBalances, ReadonlyConfig,
@@ -945,7 +945,7 @@ fn try_add_receiver_api_callback<S: ReadonlyStorage>(
     memo: Option<String>,
 ) -> StdResult<()> {
     if let Some(receiver_hash) = recipient_code_hash {
-        let receiver_msg = hmip20ReceiveMsg::new(sender, from, amount, memo, msg);
+        let receiver_msg = Hmip20ReceiveMsg::new(sender, from, amount, memo, msg);
         let callback_msg = receiver_msg.into_cosmos_msg(receiver_hash, recipient)?;
 
         messages.push(callback_msg);
@@ -955,7 +955,7 @@ fn try_add_receiver_api_callback<S: ReadonlyStorage>(
     let receiver_hash = get_receiver_hash(storage, &recipient);
     if let Some(receiver_hash) = receiver_hash {
         let receiver_hash = receiver_hash?;
-        let receiver_msg = hmip20ReceiveMsg::new(sender, from, amount, memo, msg);
+        let receiver_msg = Hmip20ReceiveMsg::new(sender, from, amount, memo, msg);
         let callback_msg = receiver_msg.into_cosmos_msg(receiver_hash, recipient)?;
 
         messages.push(callback_msg);
@@ -2067,7 +2067,7 @@ mod tests {
         assert!(result.messages.contains(&CosmosMsg::Wasm(WasmMsg::Execute {
             contract_addr: HumanAddr("contract".to_string()),
             callback_code_hash: "this_is_a_hash_of_a_code".to_string(),
-            msg: hmip20ReceiveMsg::new(
+            msg: Hmip20ReceiveMsg::new(
                 HumanAddr("bob".to_string()),
                 HumanAddr("bob".to_string()),
                 Uint128(100),
@@ -2378,7 +2378,7 @@ mod tests {
             handle_result.err().unwrap()
         );
         let send_msg = Binary::from(r#"{ "some_msg": { "some_key": "some_val" } }"#.as_bytes());
-        let hmip20_msg = hmip20ReceiveMsg::new(
+        let hmip20_msg = Hmip20ReceiveMsg::new(
             HumanAddr("alice".to_string()),
             HumanAddr("bob".to_string()),
             Uint128(2000),
