@@ -727,7 +727,7 @@ fn try_deposit<S: Storage, A: Api, Q: Querier>(
     let mut amount = Uint128::zero();
 
     for coin in &env.message.sent_funds {
-        if coin.denom == "uGHM" {
+        if coin.denom == "ughm" {
             amount = coin.amount
         } else {
             return Err(StdError::generic_err(
@@ -774,7 +774,7 @@ fn try_deposit<S: Storage, A: Api, Q: Querier>(
         &mut deps.storage,
         &sender_address,
         amount,
-        "uGHM".to_string(),
+        "ughm".to_string(),
         &env.block,
     )?;
 
@@ -827,7 +827,7 @@ fn try_redeem<S: Storage, A: Api, Q: Querier>(
 
     let token_reserve = deps
         .querier
-        .query_balance(&env.contract.address, "uGHM")?
+        .query_balance(&env.contract.address, "ughm")?
         .amount;
     if amount > token_reserve {
         return Err(StdError::generic_err(
@@ -836,7 +836,7 @@ fn try_redeem<S: Storage, A: Api, Q: Querier>(
     }
 
     let withdrawal_coins: Vec<Coin> = vec![Coin {
-        denom: "uGHM".to_string(),
+        denom: "ughm".to_string(),
         amount,
     }];
 
@@ -1796,7 +1796,7 @@ mod tests {
         let mut deps = mock_dependencies(
             20,
             &[Coin {
-                denom: "uGHM".to_string(),
+                denom: "ughm".to_string(),
                 amount: Uint128(contract_bal),
             }],
         );
@@ -3044,7 +3044,7 @@ mod tests {
             mock_env(
                 "lebron",
                 &[Coin {
-                    denom: "uGHM".to_string(),
+                    denom: "ughm".to_string(),
                     amount: Uint128(1000),
                 }],
             ),
@@ -3059,7 +3059,7 @@ mod tests {
             mock_env(
                 "lebron",
                 &[Coin {
-                    denom: "uGHM".to_string(),
+                    denom: "ughm".to_string(),
                     amount: Uint128(1000),
                 }],
             ),
@@ -4328,7 +4328,7 @@ mod tests {
             mock_env(
                 "bob",
                 &[Coin {
-                    denom: "uGHM".to_string(),
+                    denom: "ughm".to_string(),
                     amount: Uint128(1000),
                 }],
             ),
@@ -4446,7 +4446,7 @@ mod tests {
                 id: 5,
                 action: TxAction::Deposit {},
                 coins: Coin {
-                    denom: "uGHM".to_string(),
+                    denom: "ughm".to_string(),
                     amount: Uint128(1000),
                 },
                 memo: None,

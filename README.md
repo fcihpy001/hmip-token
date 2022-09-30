@@ -25,7 +25,7 @@ this commone will output  a file `contract.wasm.gz`.
 
 ### storage contract code
 ```bash
-ghmd tx compute store contract.wasm.gz --from a --gas 1000000 --gas-prices 0.25uGHM
+ghmd tx compute store contract.wasm.gz --from a --gas 1000000 --gas-prices 0.25ughm
 ```
 
 use `ghmd q compute list-code`, find the number of upload contract
@@ -54,7 +54,7 @@ ghmd tx compute instantiate <code-id> \
 #### deposit
 
 ```bash
-ghmd tx compute execute <contract_address> '{"deposit":{}}' --amount 1000000uGHM --from <account>
+ghmd tx compute execute <contract_address> '{"deposit":{}}' --amount 1000000ughm --from <account>
 ```
 
 #### Redeem
