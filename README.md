@@ -16,7 +16,6 @@ apt update && apt install -y binaryen clang
 ```bash
 cd himp20
 cargo test
-
 make compile-optimized
 ```
 this commone will output  a file `contract.wasm.gz`.

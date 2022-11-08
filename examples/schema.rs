@@ -2,7 +2,7 @@ use std::env::current_dir;
 use std::fs::create_dir_all;
 
 use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
-use hermit_hmip20::msg::{HandleAnswer, HandleMsg, InitMsg, QueryAnswer, QueryMsg};
+use hmip_token::msg::{HandleAnswer, HandleMsg, InitMsg, QueryAnswer, QueryMsg};
 
 fn main() {
     let mut out_dir = current_dir().unwrap();

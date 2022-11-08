@@ -2,12 +2,9 @@ use std::fmt;
 
 use schemars::JsonSchema;
 use serde::{Serialize,Deserialize};
-
 use cosmwasm_std::Env;
-
-use crate::rand::{sha_256, Prng};
-use crate::utils::{create_hashed_password, ct_slice_compare};
-
+use crate::tools::rand::{Prng, sha_256};
+use crate::tools::utils::{create_hashed_password, ct_slice_compare};
 
 pub const VIEWING_KEY_SIZE: usize = 32;
 pub const VIEWING_KEY_PREFIX: &str = "api_key_";

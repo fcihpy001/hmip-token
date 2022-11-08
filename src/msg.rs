@@ -7,8 +7,8 @@ use cosmwasm_std::{Binary, HumanAddr, StdError, StdResult, Uint128};
 use hermit_toolkit::permit::Permit;
 
 use crate::batch;
+use crate::tools::viewing_key::ViewingKey;
 use crate::transaction_history::{RichTx, Tx};
-use crate::viewing_key::ViewingKey;
 
 
 #[derive(Serialize,Deserialize,Clone, PartialEq, JsonSchema)]

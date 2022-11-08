@@ -1,5 +1,5 @@
 [package]
-name = "hermit-hmip20"
+name = "hmip-token"
 version = "0.1.0"
 edition = "2021"
 exclude = [

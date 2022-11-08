@@ -1,12 +1,13 @@
 mod batch;
 pub mod contract;
 pub mod msg;
-mod rand;
 pub mod receiver;
 pub mod state;
 mod transaction_history;
-mod utils;
-mod viewing_key;
+mod tools;
+mod tests;
+mod handle;
+mod query;
 
 #[cfg(target_arch = "wasm32")]
 mod wasm {

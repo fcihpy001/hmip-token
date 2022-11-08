@@ -1,7 +1,8 @@
-use crate::viewing_key::VIEWING_KEY_SIZE;
+
 use sha2::{Digest, Sha256};
 use std::convert::TryInto;
 use subtle::ConstantTimeEq;
+use crate::tools::viewing_key::VIEWING_KEY_SIZE;
 
 
 pub fn ct_slice_compare(s1: &[u8], s2: &[u8]) -> bool {
